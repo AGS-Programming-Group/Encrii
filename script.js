@@ -9,7 +9,7 @@ You have been warned.
 */
 
 // HTML Elements
-var h = {
+const h = {
     eText: document.querySelector('#eText'),
     dText: document.querySelector('#dText'),
     eKey: document.querySelector('#eKey'),
@@ -19,13 +19,13 @@ var h = {
 };
 
 // Core variables
-var rawText = [];
-var chrText = [];
-var chrKey = [];
-var fText = [];
-var iText = [];
-var fString = '';
-var bigNum = 0
+let rawText = [];
+let chrText = [];
+let chrKey = [];
+let fText = [];
+let iText = [];
+let fString = '';
+let bigNum = 0
 
 function encrypt() {
 
@@ -42,21 +42,21 @@ function encrypt() {
     rawKey = (h.eKey.value).split('');
 
     // Converting to char codes
-    for (var i=0;i<rawText.length;i++) {
+    for (let i=0;i<rawText.length;i++) {
         chrText.push(rawText[i].charCodeAt()+(i*i));
     }
 
-    for (var i=0;i<rawKey.length;i++) {
+    for (let i=0;i<rawKey.length;i++) {
         chrKey.push(rawKey[i].charCodeAt());
     }
     
     // Making a large number which is the charcodes of the key added together
-    for (var i=0;i<chrKey.length;i++) {
+    for (let i=0;i<chrKey.length;i++) {
         bigNum += chrKey[i];
     }
     
     // Algorithm
-    for (var i=0;i<chrText.length;i++) {
+    for (let i=0;i<chrText.length;i++) {
         fText.push(chrText[i]*bigNum);
     }
 
@@ -77,23 +77,23 @@ function decrypt() {
     rawText = (h.dText.value).split(',');
     rawKey = (h.dKey.value).split('');
 
-    for (var i=0;i<rawKey.length;i++) {
+    for (let i=0;i<rawKey.length;i++) {
         chrKey.push(rawKey[i].charCodeAt());
     }
 
-    for (var i=0;i<chrKey.length;i++) {
+    for (let i=0;i<chrKey.length;i++) {
         bigNum += chrKey[i];
     }
     
-    for (var i=0;i<rawText.length;i++) {
+    for (let i=0;i<rawText.length;i++) {
 		iText.push(rawText[i]/bigNum)
 	}
 
-    for (var i=0;i<iText.length;i++) {
+    for (let i=0;i<iText.length;i++) {
         fText.push(String.fromCharCode(iText[i]-(i*i)));
     }
 
-    for (var i=0;i<fText.length;i++) {
+    for (let i=0;i<fText.length;i++) {
         fString += fText[i];
     }
 
