@@ -60,7 +60,7 @@ function encrypt() {
         fText.push(chrText[i]*bigNum);
     }
 
-    h.fText.innerHTML = 'Your Encrypted Text is:<br><hr>'+fText;
+    h.fText.innerHTML = fText;
 
 }
 
@@ -97,7 +97,7 @@ function decrypt() {
         fString += fText[i];
     }
 
-    h.ffText.innerHTML = 'Your Decrypted Text is:<br><hr>'+fString;
+    h.ffText.innerHTML = fString;
 }
 
 // camelCaseIsDope
