@@ -96,7 +96,7 @@ function decrypt() {
     for (let i=0;i<fText.length;i++) {
         fString += fText[i];
     }
-
+    h.ffText.innerHTML = '';
     h.ffText.innerHTML = fString;
 }
 
