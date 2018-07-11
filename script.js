@@ -73,6 +73,7 @@ function decrypt() {
     fText = [];
     iText = [];
     bigNum = 0;
+    fString = '';
 
     rawText = (h.dText.value).split(',');
     rawKey = (h.dKey.value).split('');
